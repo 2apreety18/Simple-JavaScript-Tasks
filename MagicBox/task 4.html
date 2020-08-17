@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body >
+
+
+<div class="utility">
+<form>
+<fieldset style="width:50%;font-family: verdana;text-align: center; background: grey">
+<p style="font-size: 200%;color: black; text-align: left;">Magic!</p>
+<textarea id="user_input" rows="30" cols="100" style="margin:30px; border: 3px solid #00ff80; border-style: dashed;"></textarea><br/>
+<button type="button" class="magic-buttons" id="reset">Clear It</button>
+<button type="button" class="magic-buttons" id="change_case">Change Case</button>
+<button type="button" class="magic-buttons" id="sort">Sort</button>
+<button type="button" class="magic-buttons" id="reverse">Reverse</button>
+<button type="button" class="magic-buttons" id="line_numbering">Add Numbers</button>
+<button type="button" class="magic-buttons" id="shuffle">Shuffle</button>
+</fieldset>
+</form>
+</div>
+</body>
+<script >
+document.getElementById("reset").addEventListener("click",function(){
+
+document.getElementById("user_input").value='';
+
+});
+
+
+document.getElementById("change_case").addEventListener("click",function(){
+if(document.getElementById("user_input").value == document.getElementById("user_input").value.toLowerCase()){
+document.getElementById("user_input").value = document.getElementById("user_input").value.toUpperCase();
+}
+else {
+document.getElementById("user_input").value = document.getElementById("user_input").value.toLowerCase();
+}
+});
+
+
+document.getElementById("sort").addEventListener("click",function(){
+var arr = document.getElementById("user_input").value.split("\n");
+arr.sort();
+document.getElementById("user_input").value='';
+for (var c=0;c<arr.length;c++){
+if(c != arr.length - 1){
+document.getElementById("user_input").value=document.getElementById("user_input").value + arr[c] + "\n";
+}
+else {
+document.getElementById("user_input").value=document.getElementById("user_input").value + arr[c];
+}
+}
+});
+
+
+document.getElementById("reverse").addEventListener("click",function(){
+document.getElementById("user_input").value = document.getElementById("user_input").value.split("\n").reverse().join("\n");
+
+});
+
+
+
+document.getElementById("line_numbering").addEventListener("click",function(){
+var arr = document.getElementById("user_input").value.split("\n");
+document.getElementById("user_input").value='';
+for (var c=0;c<arr.length;c++){
+if(c != arr.length - 1){
+document.getElementById("user_input").value=document.getElementById("user_input").value + c + ". " + arr[c] + "\n";
+}
+else {
+document.getElementById("user_input").value=document.getElementById("user_input").value + c + ". " + arr[c];
+}
+}
+});
+
+
+document.getElementById("shuffle").addEventListener("click",function(){
+var arr = document.getElementById("user_input").value.split("\n");
+document.getElementById("user_input").value='';
+var lineNumber = arr.length;
+for (var c=0;c<lineNumber;c++){
+var i = Math.floor(Math.random() * arr.length)
+if(c != lineNumber - 1){
+document.getElementById("user_input").value=document.getElementById("user_input").value + arr[i] + "\n";
+}
+else {
+document.getElementById("user_input").value=document.getElementById("user_input").value + arr[i];
+}
+arr.splice(i,1);
+}
+});
+</script>
+
+
+</html>
