@@ -1,0 +1,30 @@
+#textBg {
+
+	margin: 50px;
+    width: 60%;
+    border: 3px solid #73AD21;
+    padding: 10px
+
+}
+
+input {
+	margin: 10px;
+	height: 40px;
+	width: 40px;
+}
+.red1 {
+	background-color: #ff8c00;
+	border-radius: 10px;
+}
+.green1 {
+	background-color: #9acd32;
+	border-radius: 10px;
+}
+.yellow1 {
+	background-color: #ffff00;
+	border-radius: 10px;
+}
+.blue1 {
+	background-color: #00bfff;
+	border-radius: 10px;
+}
